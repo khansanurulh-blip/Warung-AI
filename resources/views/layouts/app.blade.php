@@ -65,6 +65,8 @@
 
         <h2>🤖 AI Apriori</h2>
 
+        <a href="/">📊 Dashboard</a>
+
         <a href="/barang">📦 Data Barang</a>
 
     </div>
