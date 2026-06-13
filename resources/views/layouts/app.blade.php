@@ -63,12 +63,16 @@
 
     <div class="sidebar">
 
-        <h2>🤖 AI Apriori</h2>
+        <h2> AI Apriori</h2>
 
-        <a href="/">📊 Dashboard</a>
+        <a href="/"> Dashboard</a>
 
-        <a href="/barang">📦 Data Barang</a>
+        <a href="/barang"> Data Barang</a>
 
+        <a href="/import"> Import Excel</a>
+
+        <a href="/transaksi">Data Transaksi</a>
+        
     </div>
 
     <div class="content">
