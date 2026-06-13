@@ -15,3 +15,5 @@ Route::get('/import', [ImportController::class, 'index']);
 Route::post('/import', [ImportController::class, 'upload']);
 
 Route::get('/transaksi', [TransaksiController::class, 'index']);
+
+Route::get('/transaksi/{transaksi}', [TransaksiController::class, 'show']);

@@ -13,6 +13,7 @@
             <th>Kode Transaksi</th>
             <th>Tanggal</th>
             <th>Total Item</th>
+            <th>Aksi</th>
         </tr>
     </thead>
 
@@ -23,6 +24,12 @@
             <td>{{ $transaksi->kode_transaksi }}</td>
             <td>{{ $transaksi->tanggal }}</td>
             <td>{{ $transaksi->total_item }}</td>
+
+            <td>
+                <a href="/transaksi/{{ $transaksi->id }}">
+                    Detail
+                </a>
+            </td>
         </tr>
         @endforeach
     </tbody>

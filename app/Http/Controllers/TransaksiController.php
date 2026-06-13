@@ -12,4 +12,11 @@ class TransaksiController extends Controller
 
         return view('transaksi.index', compact('transaksis'));
     }
+
+    public function show(Transaksi $transaksi)
+    {
+        $transaksi->load('detailTransaksis.barang');
+
+        return view('transaksi.show', compact('transaksi'));
+    }
 }
