@@ -22,6 +22,14 @@
         background:#1d4ed8;
     }
 
+    .btn-edit{
+        background:#f59e0b;
+        color:white;
+        padding:6px 12px;
+        border-radius:6px;
+        text-decoration:none;
+    }
+
     table{
         width:100%;
         border-collapse:collapse;
@@ -46,7 +54,7 @@
 </style>
 
 <div class="header">
-    <h2>📦 Data Barang</h2>
+    <h2>Data Barang</h2>
 
     <a href="/barang/create" class="btn-tambah">
         + Tambah Barang
@@ -61,6 +69,7 @@
             <th>Kategori</th>
             <th>Stok</th>
             <th>Harga</th>
+            <th>Aksi</th>
         </tr>
     </thead>
 
@@ -73,10 +82,17 @@
                 <td>{{ $barang->kategori }}</td>
                 <td>{{ $barang->stok }}</td>
                 <td>{{ $barang->harga }}</td>
+
+                <td>
+                    <a href="/barang/{{ $barang->id }}/edit"
+                        class="btn-edit">
+                        Edit
+                    </a>
+                </td>
             </tr>
         @empty
             <tr>
-                <td colspan="5">
+                <td colspan="6">
                     Belum ada data barang
                 </td>
             </tr>

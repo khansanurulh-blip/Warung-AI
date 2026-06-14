@@ -54,7 +54,9 @@ class BarangController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $barang = Barang::findOrFail($id);
+
+        return view('barang.edit', compact('barang'));
     }
 
     /**
@@ -62,7 +64,17 @@ class BarangController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $barang = Barang::findOrFail($id);
+
+        $barang->update([
+            'kode_barang' => $request->kode_barang,
+            'nama_barang' => $request->nama_barang,
+            'kategori' => $request->kategori,
+            'stok' => $request->stok,
+            'harga' => $request->harga,
+        ]);
+
+        return redirect('/barang');
     }
 
     /**

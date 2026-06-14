@@ -73,6 +73,8 @@
 
         <a href="/transaksi">Data Transaksi</a>
         
+        <a href="/apriori">Apriori</a>
+        
     </div>
 
     <div class="content">

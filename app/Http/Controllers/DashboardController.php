@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Transaksi;
+use App\Models\DetailTransaksi;
 
 class DashboardController extends Controller
 {
@@ -14,10 +16,16 @@ class DashboardController extends Controller
 
         $barangKritis = Barang::where('stok', '<=', 10)->count();
 
+        $totalTransaksi = Transaksi::count();
+
+        $totalDetailTransaksi = DetailTransaksi::count();
+
         return view('dashboard', compact(
             'totalBarang',
             'totalStok',
-            'barangKritis'
+            'barangKritis',
+            'totalTransaksi',
+            'totalDetailTransaksi'
         ));
     }
 }

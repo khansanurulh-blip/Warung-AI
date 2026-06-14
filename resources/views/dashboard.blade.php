@@ -5,7 +5,7 @@
 <style>
 .stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(5,1fr);
     gap:20px;
 }
 
@@ -25,6 +25,14 @@
 
 .red{
     background:#ef4444;
+}
+
+.orange{
+    background:#f97316;
+}
+
+.purple{
+    background:#7c3aed;
 }
 
 .stat-card h3{
@@ -54,6 +62,16 @@
     <div class="stat-card red">
         <h3>Barang Kritis</h3>
         <h1>{{ $barangKritis }}</h1>
+    </div>
+
+    <div class="stat-card orange">
+        <h3>Total Transaksi</h3>
+        <h1>{{ $totalTransaksi }}</h1>
+    </div>
+
+    <div class="stat-card purple">
+        <h3>Detail Transaksi</h3>
+        <h1>{{ $totalDetailTransaksi }}</h1>
     </div>
 
 </div>
