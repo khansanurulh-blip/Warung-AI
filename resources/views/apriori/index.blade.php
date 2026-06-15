@@ -29,6 +29,7 @@
 }
 </style>
 
+
 <h2 style="margin-bottom:5px;">
     Analisis Apriori
 </h2>
@@ -36,6 +37,7 @@
 <p style="color:#6b7280;margin-bottom:25px;">
     Temukan pola pembelian pelanggan berdasarkan data transaksi
 </p>
+
 <form method="GET" action="/apriori"
       style="
         margin-bottom:25px;

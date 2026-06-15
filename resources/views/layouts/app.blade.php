@@ -25,6 +25,7 @@
             background:#2563eb;
             color:white;
             padding:20px;
+            position:relative;
         }
 
         .sidebar h2{
@@ -42,6 +43,12 @@
 
         .sidebar a:hover{
             background:rgba(255,255,255,0.2);
+        }
+
+        .sidebar a.active{
+            background:white;
+            color:#2563eb;
+            font-weight:bold;
         }
 
         .content{
@@ -63,18 +70,50 @@
 
     <div class="sidebar">
 
-        <h2> AI Apriori</h2>
+        <div style="margin-bottom:30px;">
+            <h2 style="margin-bottom:5px;">
+                AI Apriori
+            </h2>
 
-        <a href="/"> Dashboard</a>
+            <small style="opacity:0.8;">
+                Stock Recommendation System
+            </small>
+        </div>
 
-        <a href="/barang"> Data Barang</a>
+        <a href="/"
+            class="{{ request()->is('/') ? 'active' : '' }}">
+            Dashboard
+        </a>
 
-        <a href="/import"> Import Excel</a>
+        <a href="/barang"
+            class="{{ request()->is('barang*') ? 'active' : '' }}">
+            Data Barang
+        </a>
 
-        <a href="/transaksi">Data Transaksi</a>
+        <a href="/import"
+            class="{{ request()->is('import*') ? 'active' : '' }}">
+            Import Excel
+        </a>
+
+        <a href="/transaksi"
+            class="{{ request()->is('transaksi*') ? 'active' : '' }}">
+            Data Transaksi
+        </a>
         
-        <a href="/apriori">Apriori</a>
+        <a href="/apriori"
+            class="{{ request()->is('apriori*') ? 'active' : '' }}">
+            Apriori
+        </a>
         
+        <div style="
+            position:absolute;
+            bottom:20px;
+            left:20px;
+            font-size:12px;
+            opacity:0.7;
+        ">
+            Version 1.0
+        </div>
     </div>
 
     <div class="content">

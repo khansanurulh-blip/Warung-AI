@@ -85,6 +85,19 @@ class AprioriController extends Controller
                 }
             }
         }
+        $grafikBarang = [];
+
+        foreach ($frekuensi as $items) {
+
+            $grafikBarang[] = [
+                'nama' => $items->first()->barang->nama_barang,
+                'jumlah' => $items->count()
+            ];
+        }
+
+        usort($grafikBarang, function ($a, $b) {
+            return $b['jumlah'] <=> $a['jumlah'];
+        });
 
         return view('apriori.index', compact(
             'frekuensi',
@@ -93,7 +106,8 @@ class AprioriController extends Controller
             'itemset2',
             'itemset2Support',
             'rules',
-            'minConfidence'
+            'minConfidence',
+            'grafikBarang'
         ));
     }
 }

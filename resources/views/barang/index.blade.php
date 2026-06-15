@@ -109,11 +109,34 @@
                 </td>
                 <td>{{ $barang->harga }}</td>
 
-                <td>
+               <td>
                     <a href="/barang/{{ $barang->id }}/edit"
                         class="btn-edit">
                         Edit
                     </a>
+
+                    <form action="/barang/{{ $barang->id }}"
+                        method="POST"
+                        style="display:inline;">
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit"
+                                onclick="return confirm('Yakin hapus barang ini?')"
+                                style="
+                                    background:#dc2626;
+                                    color:white;
+                                    border:none;
+                                    padding:6px 12px;
+                                    border-radius:6px;
+                                    cursor:pointer;
+                                ">
+                            Hapus
+                        </button>
+
+                    </form>
+
                 </td>
             </tr>
         @empty
