@@ -20,6 +20,7 @@
 
     .btn-tambah:hover{
         background:#1d4ed8;
+        opacity:0.9;
     }
 
     .btn-edit{
@@ -34,6 +35,9 @@
         width:100%;
         border-collapse:collapse;
         background:white;
+        border-radius:12px;
+        overflow:hidden;
+        box-shadow:0 2px 10px rgba(0,0,0,0.08);
     }
 
     th{
@@ -44,7 +48,7 @@
     }
 
     td{
-        padding:12px;
+        padding:14px 12px;
         border-bottom:1px solid #eee;
     }
 
@@ -80,7 +84,29 @@
                 <td>{{ $barang->kode_barang }}</td>
                 <td>{{ $barang->nama_barang }}</td>
                 <td>{{ $barang->kategori }}</td>
-                <td>{{ $barang->stok }}</td>
+                <td>
+                    @if($barang->stok <= 10)
+                        <span style="
+                            background:#fee2e2;
+                            color:#dc2626;
+                            padding:4px 10px;
+                            border-radius:999px;
+                            font-weight:bold;
+                        ">
+                            {{ $barang->stok }}
+                        </span>
+                    @else
+                        <span style="
+                            background:#dcfce7;
+                            color:#16a34a;
+                            padding:4px 10px;
+                            border-radius:999px;
+                            font-weight:bold;
+                        ">
+                            {{ $barang->stok }}
+                        </span>
+                    @endif
+                </td>
                 <td>{{ $barang->harga }}</td>
 
                 <td>

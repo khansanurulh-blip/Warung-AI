@@ -1,9 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+.table-modern{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+}
 
-<h2>Proses Apriori</h2>
-<form method="GET" action="/apriori" style="margin-bottom:20px;">
+.table-modern th{
+    background:#2563eb;
+    color:white;
+    padding:12px;
+    text-align:left;
+}
+
+.table-modern td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+}
+
+.table-modern tr:hover{
+    background:#f9fafb;
+}
+</style>
+
+<h2 style="margin-bottom:5px;">
+    Analisis Apriori
+</h2>
+
+<p style="color:#6b7280;margin-bottom:25px;">
+    Temukan pola pembelian pelanggan berdasarkan data transaksi
+</p>
+<form method="GET" action="/apriori"
+      style="
+        margin-bottom:25px;
+        background:white;
+        padding:20px;
+        border-radius:12px;
+        box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      ">
 
     <label>Minimum Support (%)</label>
     <input
@@ -41,7 +81,7 @@
     {{ $minConfidence }}%
 </p>
 
-<table class="table">
+<table class="table-modern">
     <thead>
         <tr>
             <th>Kombinasi Barang</th>
@@ -90,7 +130,13 @@
     </tbody>
 </table>
 
-<h3 style="margin-top:30px;">
+<h3 style="
+    margin-top:30px;
+    background:#ede9fe;
+    color:#6d28d9;
+    padding:12px 16px;
+    border-radius:10px;
+">
     Association Rules
 </h3>
 
@@ -108,7 +154,17 @@
         <tr>
             <td>{{ $rule['rule'] }}</td>
             <td>{{ $rule['support'] }}%</td>
-            <td>{{ $rule['confidence'] }}%</td>
+            <td>
+                <span style="
+                    background:#dcfce7;
+                    color:#166534;
+                    padding:4px 10px;
+                    border-radius:999px;
+                    font-weight:bold;
+                ">
+                    {{ $rule['confidence'] }}%
+                </span>
+            </td>
         </tr>
         @endforeach
     </tbody>

@@ -10,25 +10,25 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('detail_transaksis', function (Blueprint $table) {
-        $table->id();
+    {
+        Schema::create('detail_transaksis', function (Blueprint $table) {
+            $table->id();
 
-        $table->foreignId('transaksi_id')
-              ->constrained('transaksis')
-              ->cascadeOnDelete();
+            $table->foreignId('transaksi_id')
+                ->constrained('transaksis')
+                ->cascadeOnDelete();
 
-        $table->foreignId('barang_id')
-              ->constrained('barangs')
-              ->cascadeOnDelete();
+            $table->foreignId('barang_id')
+                ->constrained('barangs')
+                ->cascadeOnDelete();
 
-        $table->integer('qty')->default(1);
+            $table->integer('qty')->default(1);
 
-        $table->decimal('subtotal', 12, 2)->default(0);
+            $table->decimal('subtotal', 12, 2)->default(0);
 
-        $table->timestamps();
-    });
-}
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.

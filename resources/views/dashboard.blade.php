@@ -5,7 +5,7 @@
 <style>
 .stats{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:20px;
 }
 
@@ -13,6 +13,14 @@
     padding:20px;
     border-radius:15px;
     color:white;
+}
+
+.stat-card{
+    transition:0.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
 }
 
 .blue{
@@ -41,11 +49,18 @@
 }
 
 .stat-card h1{
-    font-size:32px;
+    font-size:36px;
+    margin:0;
+    font-weight:bold;
 }
+
 </style>
 
-<h2 style="margin-bottom:20px;">📊 Dashboard</h2>
+<h2 style="margin-bottom:5px;">Dashboard</h2>
+
+<p style="color:#6b7280;margin-bottom:25px;">
+    Ringkasan data barang dan transaksi warung
+</p>
 
 <div class="stats">
 
