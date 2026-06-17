@@ -30,6 +30,20 @@ class BarangController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_barang' => 'required',
+            'nama_barang' => 'required',
+            'kategori' => 'required',
+            'stok' => 'required|numeric',
+            'harga' => 'required|numeric',
+        ],[
+            'kode_barang.required' => 'Kode barang wajib diisi',
+            'nama_barang.required' => 'Nama barang wajib diisi',
+            'kategori.required' => 'Kategori wajib diisi',
+            'stok.required' => 'Stok wajib diisi',
+            'harga.required' => 'Harga wajib diisi',
+        ]);
+
         Barang::create([
             'kode_barang' => $request->kode_barang,
             'nama_barang' => $request->nama_barang,
@@ -64,6 +78,20 @@ class BarangController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'kode_barang' => 'required',
+            'nama_barang' => 'required',
+            'kategori' => 'required',
+            'stok' => 'required|numeric',
+            'harga' => 'required|numeric',
+        ],[
+            'kode_barang.required' => 'Kode barang wajib diisi',
+            'nama_barang.required' => 'Nama barang wajib diisi',
+            'kategori.required' => 'Kategori wajib diisi',
+            'stok.required' => 'Stok wajib diisi',
+            'harga.required' => 'Harga wajib diisi',
+        ]);
+
         $barang = Barang::findOrFail($id);
 
         $barang->update([

@@ -17,6 +17,12 @@ Route::post('/import', [ImportController::class, 'upload']);
 
 Route::get('/transaksi', [TransaksiController::class, 'index']);
 
+Route::get('/transaksi/create', [TransaksiController::class, 'create']);
+
+Route::post('/transaksi', [TransaksiController::class, 'store']);
+
 Route::get('/transaksi/{transaksi}', [TransaksiController::class, 'show']);
 
 Route::get('/apriori', [AprioriController::class, 'index']);
+
+Route::delete('/transaksi/{transaksi}', [TransaksiController::class, 'destroy']);

@@ -62,23 +62,70 @@
         @csrf
 
         <label>Kode Barang</label>
-        <input type="text" name="kode_barang">
+        <input
+            type="text"
+            name="kode_barang"
+            value="{{ old('kode_barang') }}">
+
+        @error('kode_barang')
+            <small style="color:red;">
+                {{ $message }}
+            </small>
+        @enderror
 
         <label>Nama Barang</label>
-        <input type="text" name="nama_barang">
+        <input
+            type="text"
+            name="nama_barang"
+            value="{{ old('nama_barang') }}">
+
+        @error('nama_barang')
+            <small style="color:red;">
+                {{ $message }}
+            </small>
+        @enderror
 
         <label>Kategori</label>
-        <input type="text" name="kategori">
+        <input
+            type="text"
+            name="kategori"
+            value="{{ old('kategori') }}">
+
+        @error('kategori')
+            <small style="color:red;">
+                {{ $message }}
+            </small>
+        @enderror
 
         <label>Stok</label>
-        <input type="number" name="stok">
+        <input
+            type="number"
+            name="stok"
+            value="{{ old('stok') }}">
+
+        @error('stok')
+            <small style="color:red;">
+                {{ $message }}
+            </small>
+        @enderror
 
         <label>Harga</label>
-        <input type="number" name="harga">
+        <input
+            type="number"
+            name="harga"
+            value="{{ old('harga') }}">
 
-        <button type="submit">
-            Simpan Barang
-        </button>
+        @error('harga')
+            <div style="color:red;margin-top:5px;">
+                {{ $message }}
+            </div>
+        @enderror
+
+        <div style="margin-top:25px;">
+            <button type="submit">
+                Simpan Barang
+            </button>
+        </div>
 
     </form>
 

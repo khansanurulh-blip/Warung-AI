@@ -3,6 +3,25 @@
 @section('content')
 
 <style>
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.btn-tambah{
+    background:#2563eb;
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.btn-tambah:hover{
+    background:#1d4ed8;
+}
+
 .table-modern{
     width:100%;
     border-collapse:collapse;
@@ -39,17 +58,42 @@
 .btn-detail:hover{
     opacity:0.9;
 }
+
+.btn-hapus{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.btn-hapus:hover{
+    background:#dc2626;
+}
+
 </style>
 
-<h2 style="margin-bottom:5px;">
-    Data Transaksi
-</h2>
+<div class="header">
 
-<p style="color:#6b7280;margin-bottom:25px;">
-    Daftar transaksi yang telah diimpor ke sistem
-</p>
+    <div>
+        <h2 style="margin-bottom:5px;">
+            Data Transaksi
+        </h2>
+
+        <p style="color:#6b7280;">
+            Daftar transaksi yang telah masuk ke sistem
+        </p>
+    </div>
+
+    <a href="/transaksi/create" class="btn-tambah">
+        + Tambah Transaksi
+    </a>
+
+</div>
 
 <table class="table-modern">
+
     <thead>
         <tr>
             <th>No</th>
@@ -61,22 +105,65 @@
     </thead>
 
     <tbody>
-        @foreach($transaksis as $transaksi)
+
+        @forelse($transaksis as $transaksi)
+
         <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $transaksi->kode_transaksi }}</td>
-            <td>{{ $transaksi->tanggal }}</td>
-            <td>{{ $transaksi->total_item }}</td>
 
             <td>
-                <a href="/transaksi/{{ $transaksi->id }}"
+                {{ $transaksi->kode_transaksi }}
+            </td>
+
+            <td>
+                {{ $transaksi->tanggal }}
+            </td>
+
+            <td>
+                {{ $transaksi->total_item }}
+            </td>
+
+            <td style="display:flex;gap:8px;">
+
+                <a
+                    href="/transaksi/{{ $transaksi->id }}"
                     class="btn-detail">
-                        Detail
+                    Detail
                 </a>
+
+                <form
+                    action="/transaksi/{{ $transaksi->id }}"
+                    method="POST"
+                    onsubmit="return confirm('Yakin ingin menghapus transaksi ini?')">
+
+                    @csrf
+                    @method('DELETE')
+
+                    <button
+                        type="submit"
+                        class="btn-hapus">
+
+                        Hapus
+
+                    </button>
+
+                </form>
+
             </td>
         </tr>
-        @endforeach
+
+        @empty
+
+        <tr>
+            <td colspan="5">
+                Belum ada transaksi
+            </td>
+        </tr>
+
+        @endforelse
+
     </tbody>
+
 </table>
 
 @endsection
